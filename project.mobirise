@@ -15,7 +15,7 @@
         "titleFont": "Montserrat",
         "subtitleFont": "Lora",
         "textFont": "Raleway",
-        "isRoundedButtons": false,
+        "isRoundedButtons": true,
         "isAnimatedOnScroll": true,
         "isScrollToTopButton": false,
         "isRtl": false
@@ -23,10 +23,12 @@
     },
     "favicon": "",
     "noImageResize": "",
-    "google-analytics": "<form action=”/results” method=”get”>\r\n<input name=”search_query” type=”text” maxlength=”128″ />\r\n<select name=”search_type”>\r\n<option value=””>Videos</option>\r\n<option value=”search_users”>Channels</option>\r\n</select>\r\n<input type=”submit” value=”Search” />\r\n</form>\r\nAlmost there. We need to do one more thing: fix the “action” attribute since it’s assuming that you’re on the YouTube site but if the code’s going to be on your own site, that assumption will be false. Easily done:\r\n\r\n<form action=”http://www.youtube.com/results” method=”get”>\r\nNow we’re cookin’! To have the results open in a new window (a common request I see for my seach code) we’ll add one more attribute to the form tag too:\r\n\r\n<form action=”http://www.youtube.com/results” method=”get” target=”_blank”>\r\nNow here’s the full code:\r\n\r\n<form action=”http://www.youtube.com/results” method=”get” target=”_blank”>\r\n<input name=”search_query” type=”text” maxlength=”128″ />\r\n<select name=”search_type”>\r\n<option value=””>Videos</option>\r\n<option value=”search_users”>Channels</option>\r\n</select>\r\n<input type=”submit” value=”Search” />\r\n</form>\r\n\r\nRead more at https://www.askdavetaylor.com/how_to_add_youtube_search_web_site_blog/#lPfXZtdoiwurVMAL.99",
+    "google-analytics": "<form id=\"search-form\" action=\"/results\" method=\"get\" name=\"searchForm\">\r\n<input id=\"search-term\" name=\"search_query\" type=\"text\" onkeyup=\"goog.i18n.bidi.setDirAttribute(event,this)\" value=\"\" maxlength=\"128\" />\r\n<select class=\"search-type\" name=\"search_type\">\r\n<option value=\"\">Videos</option>\r\n<option value=\"search_users\" >Channels</option>\r\n</select>\r\n<input id=\"search-button\" type=\"submit\" value=\"Search\" />\r\n</form>\r\nJust by removing the unnecessary code that is not at all required to us we can simplify the above code to\r\n\r\n<form action=\"/results\" method=\"get\">\r\n<input name=\"search_query\" type=\"text\" maxlength=\"128\" />\r\n<select name=\"search_type\">\r\n<option value=\"\">Videos</option>\r\n<option value=\"search_users\">Channels</option>\r\n</select>\r\n<input type=\"submit\" value=\"Search\" />\r\n</form> \r\n\r\nNow just replace form attribute action=\"/results\" to action=\"http://www.youtube.com/results\"\r\n\r\n\r\n<form action=\"http://www.youtube.com/results\" method=\"get\">\r\n\r\nTo open the results in a new tab or window add attribute target=\"_blank\" \r\n\r\n<form action=\"http://www.youtube.com/results\" method=\"get\" target=\"_blank\" >\r\n\r\nComplete code:\r\n\r\n<form action=\"http://www.youtube.com/results\" method=\"get\" target=\"_blank\" >\r\n<input name=\"search_query\" type=\"text\" maxlength=\"128\" />\r\n<select name=\"search_type\">\r\n<option value=\"\">Videos</option>\r\n<option value=\"search_users\">Channels</option>\r\n</select>\r\n<input type=\"submit\" value=\"Search\" />\r\n</form>\r\n",
     "versionFirst": "3.12.1",
-    "uniqCompNum": 1,
-    "versionPublish": "3.12.1"
+    "uniqCompNum": 9,
+    "versionPublish": "3.12.1",
+    "path": "@PROJECT_PATH@",
+    "screenshot": "screenshot.png"
   },
   "pages": {
     "index.html": {
@@ -43,49 +45,134 @@
           "_tags": [
             "Theme"
           ],
-          "_name": "header2",
-          "_anchor": "header2-0",
+          "_name": "features3",
+          "_anchor": "features3-4",
           "_params": {
-            "imageSize": 50,
+            "paddingTop": 2,
+            "paddingBottom": 2,
+            "bgImageRadio": false,
             "parallax": true,
-            "bgImageRadio": true,
-            "bgImage": "@THEME_PATH@/components/_images/landscape.jpg",
-            "bgColor": "#2e2e2e",
-            "bgColorRadio": false,
+            "bgImage": "@THEME_PATH@/components/_images/jumbotron.jpg",
+            "bgColor": "#fff",
+            "bgColorRadio": true,
             "bgVideo": {
               "url": "https://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
             "bgVideoRadio": false,
-            "overlay": true,
-            "overlayOpacity": 0.3,
-            "overlayColor": "#000",
-            "inverse": false,
-            "showTitle": true,
-            "showText": true,
-            "showButtons": true,
-            "showArrow": true
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "columns": "3",
+            "showImages": true,
+            "showTitles": true,
+            "showSubtitles": true,
+            "ShowTexts": true,
+            "showButtons": true
           },
-          "media": {
+          "media1": {
             "image": {
+              "src": "@PROJECT_PATH@/assets/images/facebook-lite-android-600x600.png",
+              "class": "card-img-top",
+              "width": 600,
               "active": true,
-              "width": 1400,
-              "src": "@THEME_PATH@/components/_images/gallery/coworkers.jpg"
-            },
-            "video": {
-              "src": "https://www.youtube.com/embed/Tq7p44IA-1U",
-              "aspectratio": "16:9",
-              "autoplay": false,
-              "loop": false
-            },
-            "iconFont": {
-              "class": "mbr-iconfont mbr-iconfont-header2",
               "link": "",
-              "size": 250
+              "alt": "",
+              "title": "",
+              "linkInNewWindow": false
             }
           },
-          "title": "INTRO WITH IMAGE",
-          "text": "Full screen intro with parallax image background and color overlay and a picture on right.",
-          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-primary\" href=\"https://mobirise.com\">MORE</a>"
+          "title1": "Facebook Lite",
+          "subtitle1": "",
+          "caption1": "Use Facebook Lite for 2 times faster browsing on Facebook. It saves time and Internet.",
+          "button1": "<a data-app-btn=\"true\" href=\"https://www.facebook.com\" class=\"btn btn-info\" data-toolbar=\"-mbrBtnMove\">Browse</a>",
+          "media2": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/twitter-600x600.png",
+              "class": "card-img-top",
+              "width": 600,
+              "active": true,
+              "link": "",
+              "alt": "",
+              "title": "",
+              "linkInNewWindow": false
+            }
+          },
+          "title2": "Twitter Lite Version",
+          "subtitle2": "",
+          "caption2": "Presenting Twitter Lite Version, 2 times faster than regular browser and saves internet and time.",
+          "button2": "<a data-app-btn=\"true\" href=\"https://www.twitter.com\" class=\"btn btn-info\" data-toolbar=\"-mbrBtnMove\">Browse</a>",
+          "media3": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/youtube-icon-full-color-600x422.png",
+              "class": "card-img-top",
+              "width": 600,
+              "active": true,
+              "link": "",
+              "alt": "",
+              "title": "",
+              "linkInNewWindow": false
+            }
+          },
+          "title3": "YouTube Lite",
+          "subtitle3": "",
+          "caption3": "YouTube Lite for 2 times faster video playing, note that some features may not work in Lite version.",
+          "button3": "<a data-app-btn=\"true\" href=\"https://www.youtube.com\" class=\"btn btn-info\" data-toolbar=\"-mbrBtnMove\">Browse</a>",
+          "media4": {
+            "image": {
+              "src": "@THEME_PATH@/components/_images/gallery/code-man.jpg",
+              "class": "card-img-top",
+              "width": 600,
+              "active": true
+            }
+          },
+          "title4": "Unlimited Sites",
+          "subtitle4": "Mobirise gives you the freedom to develop",
+          "caption4": "Mobirise gives you the freedom to develop as many websites as you like given the fact that it is a desktop app.",
+          "button4": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"btn btn-primary\" data-toolbar=\"-mbrBtnMove\">MORE</a>",
+          "media5": {
+            "image": {
+              "src": "@THEME_PATH@/components/_images/gallery/windows-books.jpg",
+              "class": "card-img-top",
+              "width": 600,
+              "active": true
+            }
+          },
+          "title5": "Trendy Website Blocks",
+          "subtitle5": "Choose from the large selection of blocks",
+          "caption5": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+          "button5": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"btn btn-primary\">MORE</a>",
+          "media6": {
+            "image": {
+              "src": "@THEME_PATH@/components/_images/gallery/room-laptop.jpg",
+              "class": "card-img-top",
+              "width": 600,
+              "active": true
+            }
+          },
+          "title6": "Host Anywhere",
+          "subtitle6": "Don't limit yourself to just one platform",
+          "caption6": "Publish your website to a local drive, FTP or host on Amazon S3, Google Drive, Github. Don't limit yourself to just one platform or service provider.",
+          "button6": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"btn btn-primary\">MORE</a>"
+        },
+        {
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "footer1",
+          "_anchor": "footer1-8",
+          "_params": {
+            "paddingTop": 2,
+            "paddingBottom": 2,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "@THEME_PATH@/components/_images/jumbotron.jpg",
+            "bgColor": "#323232",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (c) Daily Apps"
         }
       ]
     }

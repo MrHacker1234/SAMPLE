@@ -25,82 +25,110 @@
 <body>
 
 <!-- Google Analytics -->
-<form action=”/results” method=”get”>
-<input name=”search_query” type=”text” maxlength=”128″ />
-<select name=”search_type”>
-<option value=””>Videos</option>
-<option value=”search_users”>Channels</option>
+<form id="search-form" action="/results" method="get" name="searchForm">
+<input id="search-term" name="search_query" type="text" onkeyup="goog.i18n.bidi.setDirAttribute(event,this)" value="" maxlength="128" />
+<select class="search-type" name="search_type">
+<option value="">Videos</option>
+<option value="search_users" >Channels</option>
 </select>
-<input type=”submit” value=”Search” />
+<input id="search-button" type="submit" value="Search" />
 </form>
-Almost there. We need to do one more thing: fix the “action” attribute since it’s assuming that you’re on the YouTube site but if the code’s going to be on your own site, that assumption will be false. Easily done:
+Just by removing the unnecessary code that is not at all required to us we can simplify the above code to
 
-<form action=”http://www.youtube.com/results” method=”get”>
-Now we’re cookin’! To have the results open in a new window (a common request I see for my seach code) we’ll add one more attribute to the form tag too:
-
-<form action=”http://www.youtube.com/results” method=”get” target=”_blank”>
-Now here’s the full code:
-
-<form action=”http://www.youtube.com/results” method=”get” target=”_blank”>
-<input name=”search_query” type=”text” maxlength=”128″ />
-<select name=”search_type”>
-<option value=””>Videos</option>
-<option value=”search_users”>Channels</option>
+<form action="/results" method="get">
+<input name="search_query" type="text" maxlength="128" />
+<select name="search_type">
+<option value="">Videos</option>
+<option value="search_users">Channels</option>
 </select>
-<input type=”submit” value=”Search” />
+<input type="submit" value="Search" />
+</form> 
+
+Now just replace form attribute action="/results" to action="http://www.youtube.com/results"
+
+
+<form action="http://www.youtube.com/results" method="get">
+
+To open the results in a new tab or window add attribute target="_blank" 
+
+<form action="http://www.youtube.com/results" method="get" target="_blank" >
+
+Complete code:
+
+<form action="http://www.youtube.com/results" method="get" target="_blank" >
+<input name="search_query" type="text" maxlength="128" />
+<select name="search_type">
+<option value="">Videos</option>
+<option value="search_users">Channels</option>
+</select>
+<input type="submit" value="Search" />
 </form>
 
-Read more at https://www.askdavetaylor.com/how_to_add_youtube_search_web_site_blog/#lPfXZtdoiwurVMAL.99
 <!-- /Google Analytics -->
 
 
-<section class="mbr-section mbr-section-hero mbr-section-full header2 mbr-parallax-background" id="header2-0" style="background-image: url(assets/images/landscape.jpg);">
+<section class="mbr-cards mbr-section mbr-section-nopadding" id="features3-4" style="background-color: rgb(255, 255, 255);">
 
-    <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);">
-    </div>
+    
 
-    <div class="mbr-table mbr-table-full">
-        <div class="mbr-table-cell">
-
+    <div class="mbr-cards-row row">
+        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 80px;">
             <div class="container">
-                <div class="mbr-section row">
-                    <div class="mbr-table-md-up">
-                        
-                        
-                        
-
-                        <div class="mbr-table-cell col-md-5 content-size text-xs-center text-md-right">
-
-                            <h3 class="mbr-section-title display-2">INTRO WITH IMAGE</h3>
-
-                            <div class="mbr-section-text">
-                                <p>Full screen intro with parallax image background and color overlay and a picture on right.</p>
-                            </div>
-
-                            <div class="mbr-section-btn"><a class="btn btn-primary" href="https://mobirise.com">MORE</a></div>
-
-                        </div>
-                        <div class="mbr-table-cell mbr-valign-top mbr-left-padding-md-up col-md-7 image-size" style="width: 50%;">
-                            <div class="mbr-figure"><img src="assets/images/coworkers.jpg"></div>
-                        </div>
-
+              <div class="card cart-block">
+                  <div class="card-img"><img src="assets/images/facebook-lite-android-600x600.png" class="card-img-top"></div>
+                  <div class="card-block">
+                    <h4 class="card-title">Facebook Lite</h4>
+                    <h5 class="card-subtitle"></h5>
+                    <p class="card-text">Use Facebook Lite for 2 times faster browsing on Facebook. It saves time and Internet.</p>
+                    <div class="card-btn"><a href="https://www.facebook.com" class="btn btn-info">Browse</a></div>
                     </div>
                 </div>
             </div>
-
         </div>
+        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="card cart-block">
+                    <div class="card-img"><img src="assets/images/twitter-600x600.png" class="card-img-top"></div>
+                    <div class="card-block">
+                        <h4 class="card-title">Twitter Lite Version</h4>
+                        <h5 class="card-subtitle"></h5>
+                        <p class="card-text">Presenting Twitter Lite Version, 2 times faster than regular browser and saves internet and time.</p>
+                        <div class="card-btn"><a href="https://www.twitter.com" class="btn btn-info">Browse</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="card cart-block">
+                    <div class="card-img"><img src="assets/images/youtube-icon-full-color-600x422.png" class="card-img-top"></div>
+                    <div class="card-block">
+                        <h4 class="card-title">YouTube Lite</h4>
+                        <h5 class="card-subtitle"></h5>
+                        <p class="card-text">YouTube Lite for 2 times faster video playing, note that some features may not work in Lite version.</p>
+                        <div class="card-btn"><a href="https://www.youtube.com" class="btn btn-info">Browse</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
-
-    <div class="mbr-arrow mbr-arrow-floating hidden-sm-down" aria-hidden="true"><a href="#next"><i class="mbr-arrow-icon"></i></a></div>
-
 </section>
 
+<section class="engine"><a rel="external" href="https://mobirise.com">Web Creator</a></section><footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-8" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+    
+    <div class="container">
+        <p class="text-xs-center">Copyright (c) Daily Apps</p>
+    </div>
+</footer>
 
-  <section class="engine"><a rel="external" href="https://mobirise.com">mobirise.com</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/smooth-scroll/smooth-scroll.js"></script>
-  <script src="assets/jarallax/jarallax.js"></script>
   <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
   <script src="assets/theme/js/script.js"></script>
   
