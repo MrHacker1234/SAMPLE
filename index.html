@@ -23,50 +23,6 @@
   
 </head>
 <body>
-
-<!-- Google Analytics -->
-<form id="search-form" action="/results" method="get" name="searchForm">
-<input id="search-term" name="search_query" type="text" onkeyup="goog.i18n.bidi.setDirAttribute(event,this)" value="" maxlength="128" />
-<select class="search-type" name="search_type">
-<option value="">Videos</option>
-<option value="search_users" >Channels</option>
-</select>
-<input id="search-button" type="submit" value="Search" />
-</form>
-Just by removing the unnecessary code that is not at all required to us we can simplify the above code to
-
-<form action="/results" method="get">
-<input name="search_query" type="text" maxlength="128" />
-<select name="search_type">
-<option value="">Videos</option>
-<option value="search_users">Channels</option>
-</select>
-<input type="submit" value="Search" />
-</form> 
-
-Now just replace form attribute action="/results" to action="http://www.youtube.com/results"
-
-
-<form action="http://www.youtube.com/results" method="get">
-
-To open the results in a new tab or window add attribute target="_blank" 
-
-<form action="http://www.youtube.com/results" method="get" target="_blank" >
-
-Complete code:
-
-<form action="http://www.youtube.com/results" method="get" target="_blank" >
-<input name="search_query" type="text" maxlength="128" />
-<select name="search_type">
-<option value="">Videos</option>
-<option value="search_users">Channels</option>
-</select>
-<input type="submit" value="Search" />
-</form>
-
-<!-- /Google Analytics -->
-
-
 <section class="mbr-cards mbr-section mbr-section-nopadding" id="features3-4" style="background-color: rgb(255, 255, 255);">
 
     
@@ -117,7 +73,7 @@ Complete code:
     </div>
 </section>
 
-<section class="engine"><a rel="external" href="https://mobirise.com">Web Creator</a></section><footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-8" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+<section class="engine"><a rel="external" href="https://mobirise.com">Mobirise Website Builder</a></section><footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-8" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
     
     <div class="container">
         <p class="text-xs-center">Copyright (c) Daily Apps</p>
