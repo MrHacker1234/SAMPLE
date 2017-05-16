@@ -25,12 +25,32 @@
 <body>
 
 <!-- Google Analytics -->
-<!-- Google Custom Search Element →
-<div id=”cse” style=”width:100%;”>Loading</div>
-<script src=”http://www.google.com/jsapi” type=”text/javascript”></script>
-<script type=”text/javascript”>google.load(‘search’, ‘1’);
-          google.setOnLoadCallback(function(){var cse = new google.search.
-          CustomSearchControl();cse.draw(‘cse’);}, true);</script>
+<form action=”/results” method=”get”>
+<input name=”search_query” type=”text” maxlength=”128″ />
+<select name=”search_type”>
+<option value=””>Videos</option>
+<option value=”search_users”>Channels</option>
+</select>
+<input type=”submit” value=”Search” />
+</form>
+Almost there. We need to do one more thing: fix the “action” attribute since it’s assuming that you’re on the YouTube site but if the code’s going to be on your own site, that assumption will be false. Easily done:
+
+<form action=”http://www.youtube.com/results” method=”get”>
+Now we’re cookin’! To have the results open in a new window (a common request I see for my seach code) we’ll add one more attribute to the form tag too:
+
+<form action=”http://www.youtube.com/results” method=”get” target=”_blank”>
+Now here’s the full code:
+
+<form action=”http://www.youtube.com/results” method=”get” target=”_blank”>
+<input name=”search_query” type=”text” maxlength=”128″ />
+<select name=”search_type”>
+<option value=””>Videos</option>
+<option value=”search_users”>Channels</option>
+</select>
+<input type=”submit” value=”Search” />
+</form>
+
+Read more at https://www.askdavetaylor.com/how_to_add_youtube_search_web_site_blog/#lPfXZtdoiwurVMAL.99
 <!-- /Google Analytics -->
 
 
@@ -76,7 +96,7 @@
 </section>
 
 
-  <section class="engine"><a rel="external" href="https://mobirise.com">https://mobirise.com/</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <section class="engine"><a rel="external" href="https://mobirise.com">mobirise.com</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/smooth-scroll/smooth-scroll.js"></script>
